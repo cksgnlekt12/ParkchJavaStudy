@@ -5,6 +5,7 @@ import Step1.a_Base.designPattern_SingleTone.CarFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     /** [1] 메인 함수로써 실제 실행되는 부분 **/
@@ -35,6 +36,8 @@ public class Main {
 
         /** [4] 삼항 연산자 : 단순한 조건문을 구현하기 위한 문법 **/
         /* ( 조건문 ? 결과1 : 결과2 ) */
+        Scanner sc = new Scanner(System.in);
+        age = sc.nextInt();
         rtn = ( age < 30 ? "젊은편" : "아재");
         System.out.println(age + "살이면... " + rtn);
 
