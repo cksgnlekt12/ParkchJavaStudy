@@ -1,0 +1,32 @@
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+FINEST: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+FINER: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+FINE: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+CONFIG: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+INFO: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+WARNING: LogTest
+1월 24, 2022 12:47:01 오후 Step3.e_Logger.MyLogger log
+SEVERE: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+FINEST: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+FINER: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+FINE: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+CONFIG: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+INFO: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+WARNING: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger log
+SEVERE: LogTest
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger warning
+WARNING: name must not be null
+1월 24, 2022 12:57:56 오후 Step3.e_Logger.MyLogger warning
+WARNING: 이름이 너무 길어요

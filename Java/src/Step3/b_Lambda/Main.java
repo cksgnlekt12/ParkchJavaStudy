@@ -11,6 +11,7 @@ public class Main {
         //람다식으로 사용되는 인터페이스는 1개의 메서드만 가지고 있어야 한다. (메서드 이름은 달라도 상관 없음)
         //또한 이 인터페이스는 @FunctionalInterface 어노테이션을 정의한
         Add add = (int a, int b) -> {return a + b;};
+
         //1차적으로 Add 라는 인터페이스를 만듬
         //그 인터페이스에 대해 람다식 구현
         System.out.println(add.add(2,3));

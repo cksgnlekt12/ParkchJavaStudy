@@ -66,12 +66,12 @@ public class Main {
         MemberTreeSet memberTreeSet = new MemberTreeSet();
         MemberTreeSet2 memberTreeSet2 = new MemberTreeSet2();
 
-        TreeSet<String> set = new TreeSet<String>();
+        TreeSet<String> set = new TreeSet<>();
         set.add("홍길동");
         set.add("강감찬");
         set.add("이순신");
 
-        System.out.println(set);
+        System.out.println("1 : " + set);
         //기본적으로 TreeSet 은 Comparable 인터페이스를 Implements 하고 있기 때문에 자동적으로 비교하여 정렬을 해준다
         //즉, String, int 등은 이미 Comparable (오름차순) 이 구현이 되어 있으나, 객체의 경우는 개발자가 직접 Comparable 을 implements 를 통해 구현해주어야 한다.
 
@@ -91,7 +91,7 @@ public class Main {
         memberTreeSet2.showAllMember();
         //Comparator 의 경우 이미 Comparable 이 구현된 객체나 String, int 등에 대해 변경하고 싶을 때 사용..?
 
-        TreeSet<String> set2 = new TreeSet<String>(new myCompare());
+        TreeSet<String> set2 = new TreeSet<>(new myCompare());
         //String 만을 받는 TreeSet 클래스를 생성하되 인자는 myCompare 클래스
         set2.add("홍길동");
         set2.add("강감찬");

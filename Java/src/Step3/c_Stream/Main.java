@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BinaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -82,6 +83,18 @@ public class Main {
         //map도 forEach 와 마찬가지로 람다식 문법 구현이 가능하며 위에서는 s 의 길이를 갖는 stream 반환
         //그리고 길이는 int 형이므로 forEach 돌리면서 n 을 출력
         sList.stream().filter(s->s.length() >= 5).forEach(s->System.out.println(s));
+
+        /**
+         ArrayList 안에 배열이 있을땐 FlatMap 을 써서 1차원 배열적으로 가져올 수 있음
+         */
+        List<List<String>> testList = new ArrayList();
+
+        testList.add(Arrays.asList("1","2","3"));
+        testList.add(Arrays.asList("a","b","c"));
+
+        System.out.println("testList : " + testList);
+
+        System.out.println(testList.stream().flatMap(l -> l.stream()).collect(Collectors.toList()));
 
         stream = sList.stream();
         stream.sorted().forEach(s->System.out.print(s+ " "));
