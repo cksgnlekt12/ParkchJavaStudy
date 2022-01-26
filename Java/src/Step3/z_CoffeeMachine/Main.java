@@ -17,7 +17,32 @@ public class Main {
         모카 커피 = 아메리카노 + 우유 + 모카시럽
         크림 올라간 모카커피 = 아메리카노 + 우유 + 모카시럽 + whipping cream
 
-        커피는 컴포넌트고, 우유, 모카시럽, whipping cream은 모두 데코레이터임
+        커피는 컴포넌트고, 아메리카노, 우유, 모카시럽, whipping cream은 모두 데코레이터임
         */
+
+        /** Coffee 컴포넌트를 갖는 Decorator 를 만든다 **/
+
+        Coffee coffee = new Amaricano();
+        coffee.brewing();
+
+        System.out.println("-------");
+        Coffee latte = new Latte(coffee);
+        latte.brewing();
+
+        System.out.println("-------");
+        Coffee mocha = new Mocha(latte);
+        mocha.brewing();
+
+
+        System.out.println("-------");
+
+        Coffee testCoffee = new Mocha(new Latte(new Amaricano()));
+        testCoffee.brewing();
+
+        /////////////정리/////////////////
+        /*
+        * Decorator 을 선언하기 위한 추상화 클래스 생성
+        * 만든 추상화 클래스를 갖는 Decorator 클래스 생성
+         */
     }
 }

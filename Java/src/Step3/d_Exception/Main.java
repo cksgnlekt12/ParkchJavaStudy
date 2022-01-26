@@ -30,6 +30,7 @@ public class Main {
     }
 
 
+    //throw 를 쓴다는 것은 "미룬다는 것"
     public Class loadClass(String fileName, String className) throws FileNotFoundException, ClassNotFoundException{
         FileInputStream fis = new FileInputStream(fileName); //FileNotFoundException 발생
         Class c = Class.forName(className);  //ClassNotFoundException 발생
@@ -53,11 +54,13 @@ public class Main {
         /** [2] 반드시 실행하는 finally 구문이 있는 Exception **/
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream("a.txt");
+//            fis = new FileInputStream("a.txt");
+            throw new FileNotFoundException();
+            //throw 는 반드시 Exception 을 받아 catch 사용
         } catch (FileNotFoundException e) {
             System.out.println(e);
-            //return;
-        }finally{
+
+        }  finally{
             if(fis != null){
                 try {
                     fis.close();
@@ -75,7 +78,6 @@ public class Main {
 //            fis.asdasd;
         } catch (FileNotFoundException e) {
             System.out.println(e);
-            //return;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -91,16 +93,32 @@ public class Main {
         }
 
         /** [4] throws 를 통한 예외 처리 패스 **/
+        //내부 클래스로 지정된 loadClass 에 대해 예외 처리 패스를 구현.
+        Main test = new Main();
+
+        try {
+            test.loadClass("a.txt","abd");
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
+        } catch (Exception e){
+            System.out.println("그 외의 에러 사항들 기재");
+            //Exception 은 모든 exception 의 업캐스팅이기 때문에 최 하단에 사용해야만 한다.
+        }
+
+        System.out.println("4번 Throw를 통한 예외 처리 패스 (미룬다는 것)");
+        //내부 클래스에서 Throw 를 처리하기 때문에 내부 구문에서 try catch 를 사용해도 상관 없다.
 
         /** [5] 사용자 정의 Exception 구현 **/
-
-        Main test = new Main();
+        //IllegalArgumentException 클래스를 사용하면 사용자 정의 Exception 에 대한 클래스 생성 가능!
         String password = null;
         try {
             test.setPassword(password);
             System.out.println("오류 없음1");
         } catch (PasswordException e) {
             System.out.println(e.getMessage());
+            //해당 클래스에서 super(message)로 받아오기 때문에 getMessage() 메서드를 통해 가져옴
         }
 
         password = "abcd";

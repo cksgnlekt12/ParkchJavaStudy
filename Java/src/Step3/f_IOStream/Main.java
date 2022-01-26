@@ -23,11 +23,14 @@ public class Main {
              보조 스트림
              InputStreamReader, OutputStreamWriter, BufferedInputStream, BufferedOutputStream 등
          **/
+        //기본적으로 스트림은 일방향통행.
+
         /** [1] 표준 입출력 시스템 (System) **/
-        // System.in 써보기
+        int i, ii;
+        //system.in 써보기
 //        System.out.println("알파벳 하나를 쓰고 [Enter]를 누르세요");
 //
-//        int i, ii;
+
 //
 //        try {
 //            i = System.in.read();
@@ -38,17 +41,20 @@ public class Main {
 //            // TODO Auto-generated catch block
 //            e.printStackTrace();
 //        }
-//        // System.in 여러개 써보기
-//        System.out.println("알파벳 여러 개를 쓰고 [Enter]를 누르세요");
-//
-//        try {
-//            //여러 문자일 경우 \n(줄바꿈)을 만나기 전까지 while 문을 돌려서 출력해준다.
-//            while( (ii = System.in.read()) != '\n' ) {
-//                System.out.print((char)ii);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        // System.in 여러개 써보기
+        System.out.println("알파벳 여러 개를 쓰고 [Enter]를 누르세요");
+
+        try {
+            InputStreamReader irs = new InputStreamReader(System.in);
+            //여러 문자일 경우 \n(줄바꿈)을 만나기 전까지 while 문을 돌려서 출력해준다.
+            //while( (ii = System.in.read()) != '\n' ) {
+            //아래처럼 irs 에 대해 선언하면 자동으로 기능 스트림이 작동해서 한글도 보이게 된다.
+            while( (ii = irs.read()) != '\n' ) {
+                System.out.print((char)ii);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         /** [2] 바이트 스트림 **/
         /* 클래스
@@ -92,9 +98,8 @@ public class Main {
         System.out.println("end");
 
         //파일의 끝까지 한 바이트씩 불러오기
-        try(FileInputStream fis2 = new FileInputStream("Step3/f_IOStream/input.txt")){
-            int i;
-            while ( (i = fis.read()) != -1){
+        try(FileInputStream fis2 = new FileInputStream("input.txt")){
+            while ( (i = fis2.read()) != -1){
                 System.out.println((char)i);
             }
             System.out.println("end");
@@ -103,27 +108,27 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         //파일에서 바이트 배열로 자료 읽기
-        try (FileInputStream fis3 = new FileInputStream("input2.txt")){
+        try (FileInputStream fis3 = new FileInputStream("input.txt")){
 
             byte[] bs = new byte[10];
-            int i;
-            while ( (i = fis.read(bs)) != -1){
-				/*for(byte b : bs){
-					System.out.print((char)b);
-				}*/
-                for(int k= 0; k<i; k++){
-                    System.out.print((char)bs[k]);
-                }
-                System.out.println(": " +i + "바이트 읽음" );
-            }
+//            while ( (i = fis3.read(bs)) != -1){
+//				/*for(byte b : bs){
+//					System.out.print((char)b);
+//				}*/
+//                for(int k= 0; k<i; k++){
+//                    System.out.print((char)bs[k]);
+//                }
+//                System.out.println(": " +i + "바이트 읽음" );
+//            }
 
-			/*while ( (i = fis.read(bs, 1, 9)) != -1){
+			while ( (i = fis3.read(bs, 1, 9)) != -1){
 				for(int k= 0; k<i; k++){
 					System.out.print((char)bs[k]);
 				}
 				System.out.println(": " +i + "바이트 읽음" );
-			}*/
+			}
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,7 +140,6 @@ public class Main {
          */
 
         /** [3] 문자 스트림 **/
-
         try(FileWriter fw = new FileWriter("writer.txt")){
             fw.write('A');    // 문자 하나 출력
             char buf[] = {'B','C','D','E','F','G'};
@@ -154,12 +158,11 @@ public class Main {
         long millisecond = 0;
         try(FileInputStream fis2 = new FileInputStream("a.zip");
             FileOutputStream fos = new FileOutputStream("copy.zip");
-            BufferedInputStream bis = new BufferedInputStream(fis);
+            BufferedInputStream bis = new BufferedInputStream(fis2);
             BufferedOutputStream bos = new BufferedOutputStream(fos)){
 
             millisecond = System.currentTimeMillis();
 
-            int i;
             while( ( i = bis.read()) != -1){
                 bos.write(i);
             }
@@ -171,8 +174,10 @@ public class Main {
 
         System.out.println("파일 복사 하는 데 " + millisecond + " milliseconds 소요되었습니다.");
 
+        //문자 스트림이 아닌 바이트 스트림으로 데이터 주고 받기 (기능 스트림을 기반으로한 출력 변환)
         try(FileOutputStream fos = new FileOutputStream("data.txt");
             DataOutputStream dos = new DataOutputStream(fos))
+                //선언할 떄 여러 개가 선언될 경우 세미콜론으로 구분하여 생성
         {
 
             dos.writeByte(100);
@@ -184,8 +189,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        try(FileInputStream fis3 = new FileInputStream("data.txt");
-            DataInputStream dis = new DataInputStream(fis))
+        try(FileInputStream fis2 = new FileInputStream("data.txt");
+            DataInputStream dis = new DataInputStream(fis2))
         {
 
             System.out.println(dis.readByte());

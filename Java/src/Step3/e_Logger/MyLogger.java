@@ -39,6 +39,7 @@ public class MyLogger {
         logFile.setFormatter(new SimpleFormatter());
         warningFile.setFormatter(new SimpleFormatter());
         fineFile.setFormatter(new SimpleFormatter());
+        //SimpleFormatter 에서 지정된 포매터 지정
 
         logger.setLevel(Level.ALL);
         fineFile.setLevel(Level.FINE);

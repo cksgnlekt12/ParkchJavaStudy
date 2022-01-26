@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
+//외부적으로 클래스를 관리할 때는 Externalizable 인터페이스 선언
 public class ExPerson implements Externalizable {
 
     String name;
