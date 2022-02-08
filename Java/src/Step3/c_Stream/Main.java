@@ -53,6 +53,8 @@ public class Main {
         sList.add("Jack");
 
         Stream<String> stream = sList.stream();
+        //parallelStream() 서로 shared 되는 부분이 없을 때 멀티코어에서 쓰레드를 실행하도록 하는 stream (사용에 유의)
+
         /* 배열의 경우 Arrays.stream(arr) 에서 메서드 체이닝을 사용 */
         /* List 의 경우 자체적으로 Stream 메서드가 있으니까 그대로 쓰면 됨 */
         /** [2] 최종연산 (sum, count, forEach) **/

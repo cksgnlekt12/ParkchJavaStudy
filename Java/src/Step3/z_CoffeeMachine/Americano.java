@@ -1,6 +1,6 @@
 package Step3.z_CoffeeMachine;
 
-public class Amaricano extends Coffee{
+public class Americano extends Coffee{
 
 
     @Override

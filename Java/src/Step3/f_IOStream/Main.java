@@ -157,9 +157,9 @@ public class Main {
         /** [4] 보조 스트림 **/
         long millisecond = 0;
         try(FileInputStream fis2 = new FileInputStream("a.zip");
-            FileOutputStream fos = new FileOutputStream("copy.zip");
-            BufferedInputStream bis = new BufferedInputStream(fis2);
-            BufferedOutputStream bos = new BufferedOutputStream(fos)){
+        FileOutputStream fos = new FileOutputStream("copy.zip");
+        BufferedInputStream bis = new BufferedInputStream(fis2);
+        BufferedOutputStream bos = new BufferedOutputStream(fos)){
 
             millisecond = System.currentTimeMillis();
 

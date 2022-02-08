@@ -1,0 +1,2 @@
+1월 30, 2022 6:57:01 오후 Step3.j_Example.a.MyLogger log
+SEVERE: msg

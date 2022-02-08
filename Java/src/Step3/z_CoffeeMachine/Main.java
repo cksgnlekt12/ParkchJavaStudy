@@ -22,7 +22,7 @@ public class Main {
 
         /** Coffee 컴포넌트를 갖는 Decorator 를 만든다 **/
 
-        Coffee coffee = new Amaricano();
+        Coffee coffee = new Americano();
         coffee.brewing();
 
         System.out.println("-------");
@@ -33,10 +33,9 @@ public class Main {
         Coffee mocha = new Mocha(latte);
         mocha.brewing();
 
-
         System.out.println("-------");
 
-        Coffee testCoffee = new Mocha(new Latte(new Amaricano()));
+        Coffee testCoffee = new Mocha(new Latte(new Americano()));
         testCoffee.brewing();
 
         /////////////정리/////////////////

@@ -35,14 +35,14 @@ class PriorityThread extends Thread{
         int sum = 0;
 
         Thread t = Thread.currentThread();
-        System.out.println( t + "start");
+        System.out.println( t.getName() + " : (" + t.getPriority() + ") start");
 
-        for(int i =0; i<=1000000; i++){
-
+        for(int i =0; i<=100; i++){
             sum += i;
+            System.out.println(t.getName() + " : " + sum );
         }
 
-        System.out.println( t.getPriority() + "end");
+        System.out.println( t + " : (" + t.getPriority() + ") end");
     }
 }
 
@@ -77,13 +77,19 @@ public class Main {
 
         /** [4] 쓰레드 우선 순위 **/
         int i;
-        for(i=Thread.MIN_PRIORITY; i<= Thread.MAX_PRIORITY; i++){
+        //for(i=Thread.MIN_PRIORITY; i<= Thread.MAX_PRIORITY; i++){
 
-//            PriorityThread pt = new PriorityThread();
-//            pt.setPriority(i);
-//            pt.start();
+        PriorityThread pt1 = new PriorityThread();
+        PriorityThread pt2 = new PriorityThread();
+        PriorityThread pt3 = new PriorityThread();
+        pt1.setPriority(Thread.MIN_PRIORITY);
+        pt2.setPriority(Thread.NORM_PRIORITY);
+        pt3.setPriority(Thread.MAX_PRIORITY);
+        pt1.start();
+        pt2.start();
+        pt3.start();
 
-        }
+        //}
 
         /** [5] join() : 다른 쓰레드의 결과를 참고해야 할 쓰레드가 있을 때 자기 자신을 Not Runnable 로 상태 변화하는 메서드 **/
         JoinTest jt1 = new JoinTest(1,10);
